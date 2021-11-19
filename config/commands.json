@@ -1,0 +1,66 @@
+{
+	"help":
+	{
+		"tip": "You are here now",
+		"args": [],
+		"category": "General",
+		"admin": 0,
+		"enabled": true
+	},
+	
+	"about":
+	{
+		"tip": "Display general information about Hoshikawa",
+		"args": [],
+		"category": "General",
+		"admin": 0,
+		"enabled": true
+	},
+
+	"maintenance":
+	{
+		"tip": "Toggle maintenance mode",
+		"args": ["boolean"],
+		"category": "Debug",
+		"admin": 2,
+		"enabled": true
+	},
+
+
+	"say":
+	{
+		"tip": "Make Lily say something in a text channel",
+		"args": ["channel", "string"],
+		"category": "Admin",
+		"admin": 1,
+		"enabled": true
+	},
+
+	"config":
+	{
+		"alias": "cfg",
+		"tip": "Customise attributes of the bot",
+		"args": ["string", "string?"],
+		"category": "Admin",
+		"admin": 1,
+		"enabled": true
+	},
+
+	"ping":
+	{
+		"tip": "Check Hoshikawa's current latency",
+		"args": [],
+		"category": "General",
+		"admin": 0,
+		"enabled": true
+	},
+
+	"joindate":
+	{
+		"tip": "Check a user's join date",
+		"args": ["string"],
+		"category": "General",
+		"admin": 0,
+		"enabled": true
+	}
+}

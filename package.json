@@ -1,0 +1,18 @@
+{
+  "name": "hoshikawa",
+  "version": "1.0.0",
+  "main": "hoshikawa.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abbydiode/Hoshikawa.git"
+  },
+  "author": "abbydiode",
+  "bugs": {
+    "url": "https://github.com/abbydiode/Hoshikawa/issues"
+  },
+  "homepage": "https://github.com/abbydiode/Hoshikawa",
+  "dependencies": {
+    "discord.js": "^13.3.1"
+  }
+}
