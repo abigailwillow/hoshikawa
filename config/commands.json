@@ -1,66 +1,59 @@
-{
-	"help":
+[
 	{
-		"tip": "You are here now",
-		"args": [],
+		"name": "help",
+		"description": "You are here now",
+		"arguments": [],
 		"category": "General",
 		"admin": 0,
 		"enabled": true
 	},
-	
-	"about":
 	{
-		"tip": "Display general information about Hoshikawa",
-		"args": [],
+		"name": "about",
+		"description": "Display general information about Hoshikawa",
+		"arguments": [],
 		"category": "General",
 		"admin": 0,
 		"enabled": true
 	},
-
-	"maintenance":
 	{
-		"tip": "Toggle maintenance mode",
-		"args": ["boolean"],
+		"name": "maintenance",
+		"description": "Toggle maintenance mode",
+		"arguments": ["boolean"],
 		"category": "Debug",
 		"admin": 2,
 		"enabled": true
 	},
-
-
-	"say":
 	{
-		"tip": "Make Lily say something in a text channel",
-		"args": ["channel", "string"],
+		"name": "say",
+		"description": "Make Lily say something in a text channel",
+		"arguments": ["channel", "string"],
 		"category": "Admin",
 		"admin": 1,
 		"enabled": true
 	},
-
-	"config":
 	{
+		"name": "config",
 		"alias": "cfg",
-		"tip": "Customise attributes of the bot",
-		"args": ["string", "string?"],
+		"description": "Customise attributes of the bot",
+		"arguments": ["string", "string?"],
 		"category": "Admin",
 		"admin": 1,
 		"enabled": true
 	},
-
-	"ping":
 	{
-		"tip": "Check Hoshikawa's current latency",
-		"args": [],
+		"name": "ping",
+		"description": "Check Hoshikawa's current latency",
+		"arguments": [],
 		"category": "General",
 		"admin": 0,
 		"enabled": true
 	},
-
-	"joindate":
 	{
-		"tip": "Check a user's join date",
-		"args": ["string"],
+		"name": "joindate",
+		"description": "Check a user's join date",
+		"arguments": ["string"],
 		"category": "General",
 		"admin": 0,
 		"enabled": true
 	}
-}
+]
