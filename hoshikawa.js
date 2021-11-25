@@ -23,7 +23,7 @@ const client = new Client({
 // 		if (!categories.includes(commands[cmd].category) && commands[cmd].admin !== 2) { categories.push(commands[cmd].category) }
 // 	})
 // 	let embed = new MessageEmbed()
-// 	.setAuthor('Hoshikawa\'s Commands', client.user.avatarURL({size: 16}))
+// 	.setAuthor('Hoshikawa\'s Commands', client.user.avatarURL({size: 32}))
 // 	.setColor(config.embedcolor);
 
 // 	categories.forEach(category => {
@@ -159,8 +159,8 @@ client.on('interactionCreate', interaction => {
 			.setTitle(`Hi! I'm Lily Hoshikawa!`)
 			.setURL('https://anilist.co/character/127652/Hoshikawa-Lily')
 			.setColor(config.embedcolor)
-			.setAuthor(`${author.tag}`, author.avatarURL({size: 16}), 'https://github.com/abbydiode/')
-			.setDescription(`Version ${package.version}`);
+			.setAuthor(`${author.tag}`, author.avatarURL({size: 32}), 'https://github.com/abbydiode/')
+			.setDescription(`I'm currently on version ${package.version}`);
 			interaction.reply({ embeds: [embed] });
 		});
 	}
