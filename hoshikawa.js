@@ -5,7 +5,6 @@ const Http = require('http');
 const config = require('./config/config.json');
 const strings = require('./resources/strings.json');
 const package = require('./package.json');
-const commandRegistrar = require('./src/command-registrar.js');
 let serverInfo = 'http://ip-api.com/json?fields=status,countryCode';
 let maintenance = false
 const client = new Client({ 
@@ -146,8 +145,6 @@ client.once('ready', () => {
 			}
 		});
 	}).on('error', _ => console.error(strings.err_no_connection));
-
-	commandRegistrar.register();
 });
 
 client.on('interactionCreate', interaction => {

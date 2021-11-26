@@ -1,6 +1,10 @@
 {
   "name": "hoshikawa",
   "version": "1.0.0",
+  "scripts": {
+    "start": "node hoshikawa.js",
+    "deploy": "node deploy-commands.js" 
+  },
   "main": "hoshikawa.js",
   "private": true,
   "repository": {
