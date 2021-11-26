@@ -1,6 +1,6 @@
 # Hoshikawa
 
-## Commands
+## Usage
 
 | Command          | Description                          |
 |------------------|--------------------------------------|

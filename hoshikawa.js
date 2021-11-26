@@ -1,12 +1,11 @@
 require('console-stamp')(console, { format: ':date(HH:MM:ss.l) :label' });
 
-const { Client, Intents, MessageEmbed, GuildMember, Channel, User } = require('discord.js');
-const Http = require('http');
-const config = require('./config/config.json');
-const strings = require('./resources/strings.json');
-const package = require('./package.json');
+import { Client, Intents, User } from 'discord.js';
+import { get } from 'http';
+import * as config from './config/config.json';
+import * as strings from './resources/strings.json';
 let serverInfo = 'http://ip-api.com/json?fields=status,countryCode';
-let maintenance = false
+let maintenance = false;
 const client = new Client({ 
 	intents: [
 		Intents.FLAGS.GUILDS,
@@ -132,7 +131,7 @@ client.once('ready', () => {
 		activities: [{ name: config.activity, type: config.activityType.toUpperCase() }]
 	});
 
-	Http.get(serverInfo, response => {
+	get(serverInfo, response => {
 		serverInfo = '';
 		response.on('data', data => serverInfo += data);
 		response.on('end', () => {
@@ -148,18 +147,11 @@ client.once('ready', () => {
 });
 
 client.on('interactionCreate', interaction => {
-	if (!interaction.isCommand()) return;
-
-	if (interaction.commandName === 'about') {
-		client.users.fetch('820761886735335435').then(author => {
-			let embed = new MessageEmbed()
-			.setTitle(`Hi! I'm Lily Hoshikawa!`)
-			.setURL('https://anilist.co/character/127652/Hoshikawa-Lily')
-			.setColor(config.embedcolor)
-			.setAuthor(`${author.tag}`, author.avatarURL({size: 32}), 'https://github.com/abbydiode/')
-			.setDescription(`I'm currently on version ${package.version}`);
-			interaction.reply({ embeds: [embed] });
-		});
+	if (interaction.isCommand()) {
+		interaction.deferReply();
+		if (interaction.commandName === 'about') {
+			require('./src/commands/about').default;
+		}	
 	}
 });
 
