@@ -1,11 +1,11 @@
 require('console-stamp')(console, { format: ':date(HH:MM:ss.l) :label' });
 
-import { Client, Intents, User } from 'discord.js';
-import { get } from 'http';
-import * as config from './config/config.json';
-import * as strings from './resources/strings.json';
-let serverInfo = 'http://ip-api.com/json?fields=status,countryCode';
-let maintenance = false;
+const { Client, Intents, User } = require('discord.js');
+const http = require('http');
+const config = require('./config/config.json');
+const strings = require ('./resources/strings.json');
+const commandHandler = require('./src/command-handler.js');
+
 const client = new Client({ 
 	intents: [
 		Intents.FLAGS.GUILDS,
@@ -110,7 +110,7 @@ const client = new Client({
 
 // command.registerCommand('ping', msg => {
 // 	msg.channel.send(`Latency to Discord is ${Math.round(client.ws.ping)}ms`)
-// 	.then(m => m.edit(m.content + `, latency to Hoshikawa's server (${serverInfo.countryCode}) is ${m.createdTimestamp - msg.createdTimestamp}ms`))
+// 	.then(m => m.edit(m.content + `, latency to Hoshikawa's server (${process.env.SERVER_INFO.countryCode}) is ${m.createdTimestamp - msg.createdTimestamp}ms`))
 // });
 
 // command.registerCommand('joindate', (msg, user) => {
@@ -128,19 +128,24 @@ client.once('ready', () => {
 	console.log(`Logged in as ${client.user.tag}`);
 	console.log(`Currently serving ${client.users.cache.size} users`);
 	client.user.setPresence({
-		activities: [{ name: config.activity, type: config.activityType.toUpperCase() }]
+		activities: [{ type: config.activityType.toUpperCase(), name: config.activity }]
 	});
 
-	get(serverInfo, response => {
-		serverInfo = '';
-		response.on('data', data => serverInfo += data);
+	process.env.MAINTENANCE = false;
+
+	http.get('http://ip-api.com/json?fields=status,countryCode', response => {
+		process.env.SERVER_INFO = '';
+		response.on('data', data => process.env.SERVER_INFO += data);
 		response.on('end', () => {
 			try {
-				serverInfo = JSON.parse(serverInfo);
+				process.env.SERVER_INFO = JSON.parse(process.env.SERVER_INFO);
 			} catch (exception) {
 				console.error(exception);
 				console.warn("Server info could not be retrieved");
-				serverInfo = { "status":"fail", "countryCode":"??" };
+				process.env.SERVER_INFO = { 
+					"status":"fail",
+					"countryCode":"??" 
+				};
 			}
 		});
 	}).on('error', _ => console.error(strings.err_no_connection));
@@ -148,10 +153,7 @@ client.once('ready', () => {
 
 client.on('interactionCreate', interaction => {
 	if (interaction.isCommand()) {
-		interaction.deferReply();
-		if (interaction.commandName === 'about') {
-			require('./src/commands/about').default;
-		}	
+		commandHandler.handle(interaction);
 	}
 });
 

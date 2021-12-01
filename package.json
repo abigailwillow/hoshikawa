@@ -6,7 +6,6 @@
     "deploy": "node deploy-commands.js" 
   },
   "main": "hoshikawa.js",
-  "type": "module",
   "private": true,
   "repository": {
     "type": "git",

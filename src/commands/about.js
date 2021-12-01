@@ -1,8 +1,9 @@
-import { MessageEmbed } from 'discord.js';
-const package = require('./package.json');
+let { MessageEmbed } = require('discord.js');
+const package = require('../../package.json');
+const config = require('../../config/config.json');
 
-export default command => {
-	command.client.users.fetch('820761886735335435').then(author => {
+module.exports.handle = interaction => {
+	interaction.client.users.fetch('820761886735335435').then(author => {
 		let embed = new MessageEmbed()
 		.setTitle(`Hi! I'm Lily Hoshikawa!`)
 		.setURL('https://anilist.co/character/127652/Hoshikawa-Lily')
