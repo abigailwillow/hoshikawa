@@ -49,8 +49,8 @@
 		"enabled": true
 	},
 	{
-		"name": "joindate",
-		"description": "Check a user's join date",
+		"name": "userinfo",
+		"description": "Check a user's info",
 		"arguments": ["string"],
 		"category": "General",
 		"admin": 0,
