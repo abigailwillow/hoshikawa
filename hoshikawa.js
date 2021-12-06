@@ -14,28 +14,6 @@ const client = new Client({
 	] 
 });
 
-// Commands
-// command.registerCommand('help', msg => {
-// 	let categories = []
-// 	Object.keys(commands).forEach(cmd => {
-// 		if (!categories.includes(commands[cmd].category) && commands[cmd].admin !== 2) { categories.push(commands[cmd].category) }
-// 	})
-// 	let embed = new MessageEmbed()
-// 	.setAuthor('Hoshikawa\'s Commands', client.user.avatarURL({size: 32}))
-// 	.setColor(config.embedcolor);
-
-// 	categories.forEach(category => {
-// 		let text = ''
-// 		Object.keys(commands).forEach(cmd => {
-// 			if (commands[cmd].category === category && commands[cmd].admin !== 2) {
-// 				text += `\`${config.prefix}${cmd} ${String(commands[cmd].args).replace(',',' ')}\`­­­­­­­­­­­­­­­ ${commands[cmd].tip}\n`
-// 			}
-// 		})
-// 		embed.addField(category + ' commands', text);
-// 	});
-// 	msg.channel.send({ embeds: [embed]});
-// });
-
 // command.registerCommand('about', msg => {
 // 	client.users.fetch('820761886735335435').then(author => {
 // 		let embed = new MessageEmbed()

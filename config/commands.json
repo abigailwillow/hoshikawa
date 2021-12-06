@@ -2,58 +2,64 @@
 	{
 		"name": "help",
 		"description": "You are here now",
-		"arguments": [],
 		"category": "General",
-		"admin": 0,
+		"arguments": [],
+		"permissions": [],
+		"operator": false,
 		"enabled": true
 	},
 	{
 		"name": "about",
 		"description": "Display general information about Hoshikawa",
-		"arguments": [],
 		"category": "General",
-		"admin": 0,
+		"arguments": [],
+		"permissions": [],
+		"operator": true,
 		"enabled": true
 	},
 	{
 		"name": "maintenance",
 		"description": "Toggle maintenance mode",
-		"arguments": ["boolean"],
 		"category": "Debug",
-		"admin": 2,
+		"arguments": ["boolean"],
+		"permissions": [],
+		"operator": false,
 		"enabled": true
 	},
 	{
 		"name": "say",
 		"description": "Make Lily say something in a text channel",
+		"category": "Administration",
 		"arguments": ["channel", "string"],
-		"category": "Admin",
-		"admin": 1,
+		"permissions": ["ADMINISTRATOR"],
+		"operator": false,
 		"enabled": true
 	},
 	{
 		"name": "config",
-		"alias": "cfg",
 		"description": "Customise attributes of the bot",
+		"category": "Administration",
 		"arguments": ["string", "string?"],
-		"category": "Admin",
-		"admin": 1,
+		"permissions": ["ADMINISTRATOR"],
+		"operator": false,
 		"enabled": true
 	},
 	{
 		"name": "ping",
 		"description": "Check Hoshikawa's current latency",
-		"arguments": [],
 		"category": "General",
-		"admin": 0,
+		"arguments": [],
+		"permissions": [],
+		"operator": false,
 		"enabled": true
 	},
 	{
 		"name": "userinfo",
 		"description": "Check a user's info",
+		"category": "Administration",
 		"arguments": ["string"],
-		"category": "General",
-		"admin": 0,
+		"permissions": ["ADMINISTRATOR"],
+		"operator": false,
 		"enabled": true
 	}
 ]
