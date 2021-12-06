@@ -14,31 +14,6 @@ const client = new Client({
 	] 
 });
 
-// command.registerCommand('about', msg => {
-// 	client.users.fetch('820761886735335435').then(author => {
-// 		let embed = new MessageEmbed()
-// 		.setTitle(`Hi! I'm Lily Hoshikawa!`)
-// 		.setURL('https://anilist.co/character/127652/Hoshikawa-Lily')
-// 		.setColor(config.embedcolor)
-// 		.setAuthor(`${author.tag}`, author.avatarURL({size: 16}), 'https://github.com/abbydiode/')
-// 		.setDescription(`Version ${package.version}`);
-
-// 		msg.channel.send({ embeds: [embed] });
-// 	})
-// });
-
-// command.registerCommand('maintenance', (msg, maintenanceMode) => {
-// 	bot.guilds.forEach(guild => {
-// 		guild.me.setNickname(`${client.user.username} ${maintenanceMode ? '(maintenance)' : ''}`)
-// 	})
-
-// 	let response = `Maintenance mode ${maintenanceMode ? 'enabled' : 'disabled'}`
-// 	msg.channel.send(response)
-// 	console.log(response)
-
-// 	maintenance = maintenanceMode
-// });
-
 // command.registerCommand('say', (msg, channel, message) => {
 // 	channel.type === 'text' ? channel.send(message) : msg.channel.send(strings.err_no_channel)
 // });
@@ -105,9 +80,7 @@ const client = new Client({
 client.once('ready', () => {
 	console.log(`Logged in as ${client.user.tag}`);
 	console.log(`Currently serving ${client.users.cache.size} users`);
-	client.user.setPresence({
-		activities: [{ type: config.activityType.toUpperCase(), name: config.activity }]
-	});
+	client.user.setPresence({ status: 'online', activities: [{ type: config.activityType.toUpperCase(), name: config.activity }] });
 
 	process.env.MAINTENANCE = false;
 
