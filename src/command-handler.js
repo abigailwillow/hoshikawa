@@ -9,14 +9,27 @@ module.exports.handle = interaction => {
     if (file.existsSync(commandFile)) {
         try {
             const command = require(commandFile);
-            if (commands.find(command => command.name === interaction.commandName).operator) {
+            const commandConfig = commands.find(command => command.name === interaction.commandName)
+            if (commandConfig.operator) {
                 if (config.operators.includes(interaction.user.id)) {
                     command.handle(interaction);
                 } else {
                     interaction.reply(localization.error_no_operator);
                 }
             } else {
-                command.handle(interaction);
+                let hasPermissions = true;
+                if (commandConfig.permissions.length > 0 && interaction.inGuild()) {
+                    commandConfig.permissions.forEach(permission => {
+                        hasPermissions = hasPermissions && interaction.member.permissions.has(permission);
+                    });
+                    if (hasPermissions) {
+                        command.handle(interaction);
+                    } else {
+                        interaction.reply(localization.error_no_permission);
+                    }
+                } else {
+                    command.handle(interaction);
+                }
             }
         } catch (error) {
             console.error(error);

@@ -11,6 +11,7 @@ let commandList = [];
 
 commands.forEach(command => {
     let slashCommand = new SlashCommandBuilder().setName(command.name).setDescription(command.description);
+
     if (command.arguments.length > 0) {
         command.arguments.forEach(argument => {
             switch (argument.type) {
@@ -44,6 +45,7 @@ commands.forEach(command => {
             };
         });
     }
+    
     commandList.push(slashCommand);
 });
 

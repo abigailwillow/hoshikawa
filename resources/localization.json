@@ -1,5 +1,5 @@
 {
-	"error_no_admin": "You need to be an administrator to use this command",
+	"error_no_permission": "Sorry, you don't have permission to do that",
 	"error_no_operator": "You need to be an operator to use this command",
 	"error_no_text_channel": "The specified channel needs to be a text channel",
 	"error_no_user": "Could not find that user",
