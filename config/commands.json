@@ -80,7 +80,7 @@
 		"arguments": [
 			{
 				"name": "user",
-				"type": "user",
+				"type": "mentionable",
 				"description": "The user to retrieve info for",
 				"required": false
 			}
