@@ -5,8 +5,7 @@
 		"category": "General",
 		"arguments": [],
 		"permissions": [],
-		"operator": false,
-		"enabled": true
+		"operator": false
 	},
 	{
 		"name": "about",
@@ -14,8 +13,7 @@
 		"category": "General",
 		"arguments": [],
 		"permissions": [],
-		"operator": false,
-		"enabled": true
+		"operator": false
 	},
 	{
 		"name": "maintenance",
@@ -23,8 +21,7 @@
 		"category": "Debug",
 		"arguments": [],
 		"permissions": [],
-		"operator": true,
-		"enabled": true
+		"operator": true
 	},
 	{
 		"name": "say",
@@ -45,8 +42,7 @@
 			}
 		],
 		"permissions": ["ADMINISTRATOR"],
-		"operator": false,
-		"enabled": true
+		"operator": false
 	},
 	{
 		"name": "config",
@@ -67,8 +63,7 @@
 			}
 		],
 		"permissions": ["ADMINISTRATOR"],
-		"operator": false,
-		"enabled": true
+		"operator": false
 	},
 	{
 		"name": "ping",
@@ -76,8 +71,7 @@
 		"category": "General",
 		"arguments": [],
 		"permissions": [],
-		"operator": false,
-		"enabled": true
+		"operator": false
 	},
 	{
 		"name": "userinfo",
@@ -92,7 +86,6 @@
 			}
 		],
 		"permissions": ["ADMINISTRATOR"],
-		"operator": false,
-		"enabled": true
+		"operator": false
 	}
 ]

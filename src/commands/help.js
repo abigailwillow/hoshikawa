@@ -10,7 +10,7 @@ module.exports.handle = interaction => {
     let categories = [];
     commands.forEach(command => {
         let category = command.category;
-        if (!categories.includes(category) && !command.operator && command.enabled) { 
+        if (!categories.includes(category) && !command.operator) { 
             categories.push(category);
         };
     });
@@ -20,7 +20,7 @@ module.exports.handle = interaction => {
         let argumentsLabel = '';
         let descriptionLabel = '';
         commands.forEach(command => {
-            if (command.category === category && !command.operator && command.enabled) {
+            if (command.category === category && !command.operator) {
                 commandsLabel += '`/' + command.name + '`\n';
                 descriptionLabel += command.description + '\n';
                 if (command.arguments.length > 0) {
