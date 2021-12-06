@@ -14,7 +14,7 @@
 		"category": "General",
 		"arguments": [],
 		"permissions": [],
-		"operator": true,
+		"operator": false,
 		"enabled": true
 	},
 	{
@@ -23,13 +23,13 @@
 		"category": "Debug",
 		"arguments": ["boolean"],
 		"permissions": [],
-		"operator": false,
+		"operator": true,
 		"enabled": true
 	},
 	{
 		"name": "say",
 		"description": "Make Lily say something in a text channel",
-		"category": "Administration",
+		"category": "Admin",
 		"arguments": ["channel", "string"],
 		"permissions": ["ADMINISTRATOR"],
 		"operator": false,
@@ -38,7 +38,7 @@
 	{
 		"name": "config",
 		"description": "Customise attributes of the bot",
-		"category": "Administration",
+		"category": "Admin",
 		"arguments": ["string", "string?"],
 		"permissions": ["ADMINISTRATOR"],
 		"operator": false,
@@ -56,7 +56,7 @@
 	{
 		"name": "userinfo",
 		"description": "Check a user's info",
-		"category": "Administration",
+		"category": "Admin",
 		"arguments": ["string"],
 		"permissions": ["ADMINISTRATOR"],
 		"operator": false,
