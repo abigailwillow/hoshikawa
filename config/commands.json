@@ -21,7 +21,7 @@
 		"name": "maintenance",
 		"description": "Toggle maintenance mode",
 		"category": "Debug",
-		"arguments": ["boolean"],
+		"arguments": [],
 		"permissions": [],
 		"operator": true,
 		"enabled": true
@@ -30,7 +30,20 @@
 		"name": "say",
 		"description": "Make Lily say something in a text channel",
 		"category": "Admin",
-		"arguments": ["channel", "string"],
+		"arguments": [
+			{
+				"name": "channel",
+				"type": "channel",
+				"description": "The channel to send the message to",
+				"required": true
+			},
+			{
+				"name": "message",
+				"type": "string",
+				"description": "The message to send",
+				"required": true
+			}
+		],
 		"permissions": ["ADMINISTRATOR"],
 		"operator": false,
 		"enabled": true
@@ -39,7 +52,20 @@
 		"name": "config",
 		"description": "Customise attributes of the bot",
 		"category": "Admin",
-		"arguments": ["string", "string?"],
+		"arguments": [
+			{
+				"name": "key",
+				"type": "string",
+				"description": "The config option to check or change",
+				"required": true
+			},
+			{
+				"name": "value",
+				"type": "string",
+				"description": "The value to change the config option to",
+				"required": false
+			}
+		],
 		"permissions": ["ADMINISTRATOR"],
 		"operator": false,
 		"enabled": true
@@ -57,7 +83,14 @@
 		"name": "userinfo",
 		"description": "Check a user's info",
 		"category": "Admin",
-		"arguments": ["string"],
+		"arguments": [
+			{
+				"name": "user",
+				"type": "user",
+				"description": "The user to retrieve info for",
+				"required": false
+			}
+		],
 		"permissions": ["ADMINISTRATOR"],
 		"operator": false,
 		"enabled": true

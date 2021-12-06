@@ -22,8 +22,15 @@ module.exports.handle = interaction => {
         commands.forEach(command => {
             if (command.category === category && !command.operator && command.enabled) {
                 commandsLabel += '`/' + command.name + '`\n';
-                argumentsLabel += (command.arguments.length > 0 ? String(command.arguments).replace(',', ', ') : 'none') + '\n';
                 descriptionLabel += command.description + '\n';
+                if (command.arguments.length > 0) {
+                    command.arguments.forEach(argument => {
+                        argumentsLabel += '`' + argument.type + '` ';
+                    });
+                } else {
+                   argumentsLabel += 'none'; 
+                }
+                argumentsLabel += '\n';
             }
         });
         embed.addFields(

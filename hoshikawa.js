@@ -3,7 +3,7 @@ require('console-stamp')(console, { format: ':date(HH:MM:ss.l) :label' });
 const { Client, Intents, User } = require('discord.js');
 const http = require('http');
 const config = require('./config/config.json');
-const strings = require ('./resources/strings.json');
+const localization = require ('./resources/localization.json');
 const commandHandler = require('./src/command-handler.js');
 
 const client = new Client({ 
@@ -15,7 +15,7 @@ const client = new Client({
 });
 
 // command.registerCommand('say', (msg, channel, message) => {
-// 	channel.type === 'text' ? channel.send(message) : msg.channel.send(strings.err_no_channel)
+// 	channel.type === 'text' ? channel.send(message) : msg.channel.send(localization.error_no_channel)
 // });
 
 // command.registerCommand('config', (msg, key, value) => {
@@ -42,7 +42,7 @@ const client = new Client({
 // 				} else {
 // 					let channel = getChannel(msg.guild, value)
 // 					if (channel == null) {
-// 						msg.channel.send(strings.err_no_channel) 
+// 						msg.channel.send(strings.error_no_channel) 
 // 					} else {
 // 						if (temp.channels.includes(channel.id)) {
 // 							temp.channels.splice(temp.channels.indexOf(channel.id), 1)
@@ -72,7 +72,7 @@ const client = new Client({
 // 	if (member != null) {
 // 		msg.channel.send(`**${member.displayName}** joined on \`${member.joinedAt.toISOString().substring(0, 10)}\``)
 // 	} else {
-// 		msg.channel.send(strings.err_no_user)
+// 		msg.channel.send(strings.error_no_user)
 // 	}
 // })
 
@@ -92,14 +92,14 @@ client.once('ready', () => {
 				process.env.SERVER_INFO = JSON.parse(process.env.SERVER_INFO);
 			} catch (exception) {
 				console.error(exception);
-				console.warn("Server info could not be retrieved");
+				console.warn(localization.warn_no_connection);
 				process.env.SERVER_INFO = { 
 					"status":"fail",
 					"countryCode":"??" 
 				};
 			}
 		});
-	}).on('error', _ => console.error(strings.err_no_connection));
+	}).on('error', _ => console.error(localization.err_no_connection));
 });
 
 client.on('interactionCreate', interaction => {
