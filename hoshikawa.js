@@ -1,6 +1,6 @@
 require('console-stamp')(console, { format: ':date(HH:MM:ss.l) :label' });
 
-const { Client, Intents, User } = require('discord.js');
+const { Client, Intents } = require('discord.js');
 const http = require('http');
 const config = require('./config/config.json');
 const localization = require ('./resources/localization.json');
@@ -41,6 +41,12 @@ client.on('interactionCreate', interaction => {
 
 client.on('applicationCommandCreate', command => {
 	console.log(command);
-})
+});
+
+client.on('messageCreate', message => {
+	if (message.content.toLowerCase().replace(/[^\w\s]/g, '').match(/i[\w\s]*ga+y/g)) {
+		message.reply('We know');
+	}
+});
 
 client.login(config.token);
