@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node hoshikawa.js",
-    "deploy": "node deploy-commands.js" 
+    "deploy": "node deploy-commands.js"
   },
   "main": "hoshikawa.js",
   "private": true,
@@ -21,6 +21,7 @@
     "@discordjs/rest": "^0.1.0-canary.0",
     "console-stamp": "^3.0.3",
     "discord-api-types": "^0.24.0",
-    "discord.js": "^13.3.1"
+    "discord.js": "^13.3.1",
+    "pluralize": "^8.0.0"
   }
 }

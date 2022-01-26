@@ -2,6 +2,7 @@ require('console-stamp')(console, { format: ':date(HH:MM:ss.l) :label' });
 
 const { Client, Intents } = require('discord.js');
 const http = require('http');
+const pluralize = require('pluralize');
 const config = require('./config/config.json');
 const localization = require ('./resources/localization.json');
 const commandHandler = require('./src/command-handler.js');
@@ -16,7 +17,7 @@ const client = new Client({
 
 client.once('ready', () => {
 	console.log(`Logged in as ${client.user.tag}`);
-	console.log(`Currently serving ${client.users.cache.size} users`);
+	console.log(`Currently serving ${pluralize('guild', client.guilds.cache.size, true)}`);
 	client.user.setPresence({ status: 'online', activities: [{ type: config.activityType.toUpperCase(), name: config.activity }] });
 
 	process.env.MAINTENANCE = false;
