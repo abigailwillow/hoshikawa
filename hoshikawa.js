@@ -44,7 +44,7 @@ client.on('applicationCommandCreate', command => {
 });
 
 client.on('messageCreate', message => {
-	if (message.content.toLowerCase().replace(/[^\w\s]/g, '').match(/i[\w\s]*ga+y/g)) {
+	if (message.content.toLowerCase().replace(/[^\w\s]/g, '').match(/\bim?.+ga+y\b/g)) {
 		message.reply('We know');
 	}
 });
