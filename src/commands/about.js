@@ -9,7 +9,7 @@ module.exports.handle = interaction => {
 		.setURL('https://anilist.co/character/127652/Hoshikawa-Lily')
 		.setColor(config.embedcolor)
 		.setAuthor(`${author.tag}`, author.avatarURL({size: 32}), 'https://github.com/abbydiode/')
-		.setDescription(`I'm currently on version ${package.version}`);
+		.setDescription(`I'm currently on version [${package.version}](https://github.com/abbydiode/Hoshikawa)`);
 		interaction.reply({ embeds: [embed] });
 	});
 };
