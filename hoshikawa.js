@@ -6,7 +6,6 @@ const pluralize = require('pluralize');
 const config = require('./config/config.json');
 const localization = require ('./resources/localization.json');
 const commandHandler = require('./src/command-handler.js');
-
 const client = new Client({ 
 	intents: [
 		Intents.FLAGS.GUILDS,
@@ -48,6 +47,12 @@ client.on('messageCreate', message => {
 	if (message.content.toLowerCase().replace(/[^\w\s]/g, '').match(/\bi(?:m| am)[\w ]{0,24}ga+y\b/g)) {
 		message.reply('We know');
 	}
+
+	message.channel.messages.fetch({ limit: 3 }).then(messages => {
+		if (messages.every(msg => msg.content == message.content && !msg.author.bot && msg.content != '')) {
+			message.channel.send(message.content);
+		}
+	});
 });
 
 client.login(config.token);
