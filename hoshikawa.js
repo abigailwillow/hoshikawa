@@ -48,8 +48,8 @@ client.on('messageCreate', message => {
 		message.reply('We know');
 	}
 
-	message.channel.messages.fetch({ limit: 3 }).then(messages => {
-		if (messages.every(msg => msg.content == message.content && !msg.author.bot && msg.content != '' && msg.author != message.author)) {
+	message.channel.messages.fetch({ limit: 2, before: message.id }).then(messages => {
+		if (messages.every(m => m.content == message.content && !m.author.bot && m.content != '' && m.author != message.author)) {
 			message.channel.send(message.content);
 		}
 	});
