@@ -49,7 +49,13 @@ client.on('messageCreate', message => {
 	}
 
 	message.channel.messages.fetch({ limit: 2, before: message.id }).then(messages => {
-		if (messages.every(m => m.content == message.content && !m.author.bot && m.content != '' && m.author != message.author)) {
+		if (messages.every(m =>
+				m.content == message.content &&
+				!m.author.bot &&
+				!message.author.bot &&
+				m.content != '' &&
+				m.author != message.author
+			)) {
 			message.channel.send(message.content);
 		}
 	});
