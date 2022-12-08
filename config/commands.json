@@ -124,12 +124,6 @@
 				"required": false
 			},
 			{
-				"name": "second",
-				"type": "integer",
-				"description": "Defaults to the current second",
-				"required": false
-			},
-			{
 				"name": "timezone",
 				"type": "string",
 				"description": "Defaults to UTC (disabled)",

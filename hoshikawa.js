@@ -20,17 +20,6 @@ client.once('ready', () => {
 	client.user.setPresence({ status: 'online', activities: [{ type: config.activityType.toUpperCase(), name: config.activity }] });
 
 	process.env.MAINTENANCE = false;
-
-	http.get('http://ip-api.com/json?fields=status,countryCode', response => {
-		process.env.SERVER_INFO = '';
-		response.on('data', data => process.env.SERVER_INFO += data);
-	}).on('error', _ => {
-		console.warn(localization.warn_no_connection);
-		process.env.SERVER_INFO = { 
-			"status":"fail",
-			"countryCode":"??" 
-		}; 
-	});
 });
 
 client.on('interactionCreate', interaction => {
