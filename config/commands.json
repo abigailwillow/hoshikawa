@@ -126,7 +126,7 @@
 			{
 				"name": "timezone",
 				"type": "string",
-				"description": "Defaults to UTC (UTC-1, UTC, UTC+1 etc.)",
+				"description": "Defaults to UTC (UTC-1, UTC, UTC+1, etc.)",
 				"required": false
 			},
 			{
