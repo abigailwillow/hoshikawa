@@ -17,11 +17,11 @@ client.once('ready', () => {
 	console.log(`Currently serving ${pluralize('guild', client.guilds.cache.size, true)}`);
 	client.user.setPresence({ status: 'online', activities: [{ type: config.activityType.toUpperCase(), name: config.activity }] });
 
-	process.env.MAINTENANCE = false;
+	process.env.MAINTENANCE = 'false';
 });
 
 client.on('interactionCreate', interaction => {
-	if (interaction.isCommand() && process.env.MAINTENANCE !== 'true') {
+	if (interaction.isCommand() && process.env.MAINTENANCE === 'false' && interaction.commandName != 'maintenance') {
 		commandHandler.handle(interaction);
 	}
 });
