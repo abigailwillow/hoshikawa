@@ -26,7 +26,7 @@ module.exports.handle = interaction => {
 
     const dateTime = new Date(year, month - 1, day, hour, minute, second);
 
-    dateTime.setHours(dateTime.getHours() + offset);
+    // dateTime.setHours(dateTime.getHours() + offset);
 
     interaction.reply(`<t:${dateTime.getTime() / 1000}:${style[format] || 'f'}>`);
 };
