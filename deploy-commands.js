@@ -45,10 +45,7 @@ commands.forEach(command => {
             };
         });
     }
-    
     commandList.push(slashCommand);
 });
 
-rest.put(Routes.applicationCommands(config.applicationId), { body: commandList.map(command => command.toJSON()) })
-.then(console.log(`Registered ${commandList.length} commands`))
-.catch(console.error);
+rest.put(Routes.applicationCommands(config.applicationId), { body: commandList.map(command => command.toJSON()) }).then(console.log(`Registered ${commandList.length} commands`)).catch(console.error);

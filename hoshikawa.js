@@ -1,10 +1,8 @@
 require('console-stamp')(console, { format: ':date(HH:MM:ss.l) :label' });
 
 const { Client, Intents } = require('discord.js');
-const http = require('http');
 const pluralize = require('pluralize');
 const config = require('./config/config.json');
-const localization = require ('./resources/localization.json');
 const commandHandler = require('./src/command-handler.js');
 const client = new Client({ 
 	intents: [
