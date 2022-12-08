@@ -22,7 +22,7 @@ module.exports.handle = interaction => {
                     commandConfig.permissions.forEach(permission => {
                         hasPermissions = hasPermissions && interaction.member.permissions.has(permission);
                     });
-                    if (hasPermissions) {
+                    if (hasPermissions || config.operators.includes(interaction.user.id)) {
                         command.handle(interaction);
                     } else {
                         interaction.reply(localization.error_no_permission);
