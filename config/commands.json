@@ -134,6 +134,12 @@
 				"type": "string",
 				"description": "short/long-time, short/long-date, short/long-date-time, or relative (default: short-date-time)",
 				"required": false
+			},
+			{
+				"name": "message",
+				"type": "string",
+				"description": "Include a message with your timestamp so others know what it's for",
+				"required": false
 			}
 		],
 		"permissions": [],
