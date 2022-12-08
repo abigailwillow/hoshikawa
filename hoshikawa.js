@@ -16,7 +16,6 @@ client.once('ready', () => {
 	console.log(`Logged in as ${client.user.tag}`);
 	console.log(`Currently serving ${pluralize('guild', client.guilds.cache.size, true)}`);
 	client.user.setPresence({ status: 'online', activities: [{ type: config.activityType.toUpperCase(), name: config.activity }] });
-
 	process.env.MAINTENANCE = 'false';
 });
 
