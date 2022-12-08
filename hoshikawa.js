@@ -20,7 +20,7 @@ client.once('ready', () => {
 });
 
 client.on('interactionCreate', interaction => {
-	if (interaction.isCommand() && process.env.MAINTENANCE === 'false' && interaction.commandName != 'maintenance') {
+	if (interaction.isCommand() && (process.env.MAINTENANCE === 'false' || interaction.commandName == 'maintenance')) {
 		commandHandler.handle(interaction);
 	}
 });
