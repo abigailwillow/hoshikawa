@@ -21,7 +21,7 @@ client.once('ready', () => {
 });
 
 client.on('interactionCreate', interaction => {
-	if (interaction.isCommand()) {
+	if (interaction.isCommand() && !process.env.MAINTENANCE) {
 		commandHandler.handle(interaction);
 	}
 });
