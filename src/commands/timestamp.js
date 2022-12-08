@@ -11,8 +11,6 @@ module.exports.handle = interaction => {
     const timezone = interaction.options.getString('timezone') || 'UTC';
     const format = interaction.options.getString('format') || 'short-date-time';
 
-    console.log(`year: ${year}, month: ${month}, day: ${day}, hour: ${hour}, minute: ${minute}, second: ${second}, timezone: ${timezone}, format: ${format}`)
-
     const style = {
         'short-time': 't',
         'long-time': 'T',
