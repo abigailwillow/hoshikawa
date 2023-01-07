@@ -35,7 +35,7 @@ client.on('messageCreate', message => {
 	}
 
 	message.channel.messages.fetch({ limit: 2, before: message.id }).then(messages => {
-		if (messages.length === 2 & messages.every(m =>
+		if (messages.size === 2 && messages.every(m =>
 				m.content == message.content &&
 				!m.author.bot &&
 				!message.author.bot &&
